@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>刘泽奇 | 个人主页</title>
+<meta name="description" content="刘泽奇的个人主页：一个正在学习用 AI 做产品的大一学生。">
+<!-- 前端公开配置（Supabase URL / anon 公开密钥），必须在其他脚本之前加载 -->
+<script src="config.js"></script>
+<style>
+  :root {
+    --navy: #12355b;
+    --navy-2: #174a7e;
+    --blue: #236192;
+    --ink: #1f2937;
+    --muted: #64748b;
+    --bg: #f7f9fc;
+    --card: #ffffff;
+    --line: #e5eaf1;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: #f6ead6;
+    line-height: 1.7;
+  }
+  /* 固定星空渐变背景：深蓝→浅蓝（上暗下亮）+ 白色星点 */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-color: #0b1e3a;
+    background-image:
+      radial-gradient(circle at 2.5% 54.7%, rgba(255,255,255,0.56) 1.4px, transparent 1.9px),
+      radial-gradient(circle at 67.7% 66.2%, rgba(255,255,255,0.49) 2.4px, transparent 2.9px),
+      radial-gradient(circle at 3.0% 31.2%, rgba(255,255,255,0.70) 1.3px, transparent 1.8px),
+      radial-gradient(circle at 19.9% 0.7%, rgba(255,255,255,0.72) 2.0px, transparent 2.5px),
+      radial-gradient(circle at 58.9% 13.0%, rgba(255,255,255,0.45) 2.3px, transparent 2.8px),
+      radial-gradient(circle at 69.8% 74.7%, rgba(255,255,255,0.53) 1.5px, transparent 2.0px),
+      radial-gradient(circle at 33.7% 94.3%, rgba(255,255,255,0.50) 1.1px, transparent 1.6px),
+      radial-gradient(circle at 60.4% 80.0%, rgba(255,255,255,0.81) 2.3px, transparent 2.8px),
+      radial-gradient(circle at 97.3% 43.1%, rgba(255,255,255,0.73) 1.6px, transparent 2.1px),
+      radial-gradient(circle at 61.9% 77.7%, rgba(255,255,255,0.74) 2.4px, transparent 2.9px),
+      radial-gradient(circle at 4.6% 62.3%, rgba(255,255,255,0.59) 1.4px, transparent 1.9px),
+      radial-gradient(circle at 23.3% 3.3%, rgba(255,255,255,0.59) 1.2px, transparent 1.7px),
+      radial-gradient(circle at 36.5% 54.2%, rgba(255,255,255,0.55) 1.6px, transparent 2.1px),
+      radial-gradient(circle at 93.7% 16.8%, rgba(255,255,255,0.75) 2.0px, transparent 2.5px),
+      radial-gradient(circle at 72.9% 9.2%, rgba(255,255,255,0.64) 1.3px, transparent 1.8px),
+      radial-gradient(circle at 64.0% 98.6%, rgba(255,255,255,0.79) 1.9px, transparent 2.4px),
+      radial-gradient(circle at 77.6% 79.4%, rgba(255,255,255,0.47) 1.4px, transparent 1.9px),
+      radial-gradient(circle at 26.8% 21.1%, rgba(255,255,255,0.92) 1.3px, transparent 1.8px),
+      radial-gradient(circle at 31.5% 83.7%, rgba(255,255,255,0.65) 2.0px, transparent 2.5px),
+      radial-gradient(circle at 45.9% 88.6%, rgba(255,255,255,0.57) 1.4px, transparent 1.9px),
+      radial-gradient(circle at 26.3% 45.9%, rgba(255,255,255,0.90) 1.9px, transparent 2.4px),
+      radial-gradient(circle at 21.9% 29.0%, rgba(255,255,255,0.70) 2.6px, transparent 3.1px),
+      radial-gradient(circle at 4.7% 3.9%, rgba(255,255,255,0.76) 1.2px, transparent 1.7px),
+      radial-gradient(circle at 42.2% 73.0%, rgba(255,255,255,0.64) 1.1px, transparent 1.6px),
+      radial-gradient(circle at 52.9% 99.5%, rgba(255,255,255,0.88) 2.6px, transparent 3.1px),
+      radial-gradient(circle at 72.1% 0.2%, rgba(255,255,255,0.72) 2.1px, transparent 2.6px),
+      radial-gradient(circle at 64.1% 16.8%, rgba(255,255,255,0.67) 1.2px, transparent 1.7px),
+      radial-gradient(circle at 95.4% 34.4%, rgba(255,255,255,0.58) 2.4px, transparent 2.9px),
+      radial-gradient(circle at 17.9% 39.3%, rgba(255,255,255,0.89) 2.5px, transparent 3.0px),
+      radial-gradient(circle at 63.9% 19.5%, rgba(255,255,255,0.53) 2.0px, transparent 2.5px),
+      radial-gradient(circle at 53.9% 69.3%, rgba(255,255,255,0.72) 2.2px, transparent 2.7px),
+      radial-gradient(circle at 32.4% 0.0%, rgba(255,255,255,0.91) 1.0px, transparent 1.5px),
+      radial-gradient(circle at 83.2% 84.0%, rgba(255,255,255,0.48) 1.5px, transparent 2.0px),
+      radial-gradient(circle at 94.7% 83.9%, rgba(255,255,255,0.69) 1.1px, transparent 1.6px),
+      radial-gradient(circle at 76.1% 2.7%, rgba(255,255,255,0.51) 2.2px, transparent 2.7px),
+      radial-gradient(circle at 55.0% 36.6%, rgba(255,255,255,0.89) 1.4px, transparent 1.9px),
+      radial-gradient(circle at 21.2% 31.3%, rgba(255,255,255,0.81) 1.9px, transparent 2.4px),
+      radial-gradient(circle at 31.2% 11.5%, rgba(255,255,255,0.77) 2.6px, transparent 3.1px),
+      radial-gradient(circle at 51.8% 32.8%, rgba(255,255,255,0.56) 1.2px, transparent 1.7px),
+      radial-gradient(circle at 58.8% 23.1%, rgba(255,255,255,0.56) 1.4px, transparent 1.9px),
+      radial-gradient(circle at 63.1% 2.8%, rgba(255,255,255,0.90) 1.4px, transparent 1.9px),
+      radial-gradient(circle at 7.1% 81.5%, rgba(255,255,255,0.78) 1.4px, transparent 1.9px),
+      radial-gradient(circle at 13.2% 12.5%, rgba(255,255,255,0.74) 2.5px, transparent 3.0px),
+      radial-gradient(circle at 78.5% 36.4%, rgba(255,255,255,0.55) 2.3px, transparent 2.8px),
+      radial-gradient(circle at 43.1% 4.3%, rgba(255,255,255,0.68) 1.7px, transparent 2.2px),
+      radial-gradient(circle at 67.3% 65.3%, rgba(255,255,255,0.50) 2.6px, transparent 3.1px),
+      radial-gradient(circle at 33.9% 29.3%, rgba(255,255,255,0.57) 2.4px, transparent 2.9px),
+      radial-gradient(circle at 44.9% 10.6%, rgba(255,255,255,0.59) 1.7px, transparent 2.2px),
+      radial-gradient(circle at 92.3% 15.4%, rgba(255,255,255,0.88) 1.7px, transparent 2.2px),
+      radial-gradient(circle at 5.1% 44.7%, rgba(255,255,255,0.87) 2.6px, transparent 3.1px),
+      radial-gradient(circle at 92.6% 95.8%, rgba(255,255,255,0.53) 2.4px, transparent 2.9px),
+      radial-gradient(circle at 21.4% 37.7%, rgba(255,255,255,0.48) 1.6px, transparent 2.1px),
+      radial-gradient(circle at 98.5% 27.0%, rgba(255,255,255,0.84) 1.4px, transparent 1.9px),
+      radial-gradient(circle at 42.3% 34.5%, rgba(255,255,255,0.95) 2.5px, transparent 3.0px),
+      radial-gradient(circle at 71.8% 45.2%, rgba(255,255,255,0.60) 1.2px, transparent 1.7px),
+      radial-gradient(circle at 57.9% 95.8%, rgba(255,255,255,0.82) 1.9px, transparent 2.4px),
+      radial-gradient(circle at 58.4% 2.1%, rgba(255,255,255,0.88) 1.8px, transparent 2.3px),
+      radial-gradient(circle at 96.1% 8.2%, rgba(255,255,255,0.54) 1.1px, transparent 1.6px),
+      radial-gradient(circle at 67.5% 49.6%, rgba(255,255,255,0.51) 1.4px, transparent 1.9px),
+      radial-gradient(circle at 24.6% 85.5%, rgba(255,255,255,0.76) 2.0px, transparent 2.5px),
+      radial-gradient(circle at 58.4% 30.9%, rgba(255,255,255,0.92) 1.8px, transparent 2.3px),
+      radial-gradient(circle at 71.6% 11.7%, rgba(255,255,255,0.65) 1.4px, transparent 1.9px),
+      radial-gradient(circle at 30.0% 58.4%, rgba(255,255,255,0.83) 1.5px, transparent 2.0px),
+      radial-gradient(circle at 45.8% 2.9%, rgba(255,255,255,0.95) 2.6px, transparent 3.1px),
+      radial-gradient(circle at 21.3% 2.9%, rgba(255,255,255,0.92) 1.4px, transparent 1.9px),
+      radial-gradient(circle at 87.9% 84.3%, rgba(255,255,255,0.53) 1.6px, transparent 2.1px),
+      radial-gradient(circle at 70.4% 78.2%, rgba(255,255,255,0.94) 2.0px, transparent 2.5px),
+      radial-gradient(circle at 0.8% 56.4%, rgba(255,255,255,0.60) 2.3px, transparent 2.8px),
+      radial-gradient(circle at 93.9% 57.5%, rgba(255,255,255,0.51) 1.2px, transparent 1.7px),
+      radial-gradient(circle at 55.3% 4.9%, rgba(255,255,255,0.75) 1.4px, transparent 1.9px),
+      radial-gradient(circle at 20.4% 63.9%, rgba(255,255,255,0.58) 2.0px, transparent 2.5px),
+      radial-gradient(circle at 90.5% 38.0%, rgba(255,255,255,0.50) 2.4px, transparent 2.9px),
+      radial-gradient(circle at 27.7% 31.4%, rgba(255,255,255,0.84) 1.0px, transparent 1.5px),
+      radial-gradient(circle at 26.2% 54.4%, rgba(255,255,255,0.73) 2.2px, transparent 2.7px),
+      radial-gradient(circle at 1.0% 31.8%, rgba(255,255,255,0.89) 1.1px, transparent 1.6px),
+      radial-gradient(circle at 54.6% 87.3%, rgba(255,255,255,0.74) 2.3px, transparent 2.8px),
+      radial-gradient(circle at 12.7% 7.6%, rgba(255,255,255,0.90) 1.5px, transparent 2.0px),
+      radial-gradient(circle at 86.1% 73.5%, rgba(255,255,255,0.56) 2.4px, transparent 2.9px),
+      radial-gradient(circle at 10.3% 15.4%, rgba(255,255,255,0.89) 2.2px, transparent 2.7px),
+      radial-gradient(circle at 62.1% 29.7%, rgba(255,255,255,0.91) 1.2px, transparent 1.7px),
+      radial-gradient(circle at 97.6% 82.2%, rgba(255,255,255,0.89) 2.3px, transparent 2.8px),
+      radial-gradient(circle at 73.7% 0.7%, rgba(255,255,255,0.92) 1.5px, transparent 2.0px),
+      radial-gradient(circle at 86.4% 74.3%, rgba(255,255,255,0.58) 2.3px, transparent 2.8px),
+      radial-gradient(circle at 10.8% 72.4%, rgba(255,255,255,0.88) 2.4px, transparent 2.9px),
+      radial-gradient(circle at 81.7% 13.1%, rgba(255,255,255,0.60) 1.7px, transparent 2.2px),
+      radial-gradient(circle at 22.8% 73.4%, rgba(255,255,255,0.55) 1.0px, transparent 1.5px),
+      radial-gradient(circle at 86.4% 22.2%, rgba(255,255,255,0.59) 2.5px, transparent 3.0px),
+      radial-gradient(circle at 40.0% 54.9%, rgba(255,255,255,0.72) 2.6px, transparent 3.1px),
+      radial-gradient(circle at 11.5% 91.9%, rgba(255,255,255,0.54) 2.6px, transparent 3.1px),
+      radial-gradient(circle at 26.5% 95.0%, rgba(255,255,255,0.67) 1.2px, transparent 1.7px),
+      radial-gradient(circle at 72.9% 22.2%, rgba(255,255,255,0.95) 3.5px, transparent 4.3px),
+      radial-gradient(circle at 51.1% 28.9%, rgba(255,255,255,0.95) 3.5px, transparent 4.3px),
+      radial-gradient(circle at 25.5% 63.9%, rgba(255,255,255,0.95) 2.8px, transparent 3.6px),
+      radial-gradient(circle at 92.6% 44.7%, rgba(255,255,255,0.95) 3.7px, transparent 4.5px),
+      radial-gradient(circle at 74.2% 59.5%, rgba(255,255,255,0.95) 3.2px, transparent 4.0px),
+      radial-gradient(circle at 7.0% 58.8%, rgba(255,255,255,0.95) 3.2px, transparent 4.0px),
+      radial-gradient(circle at 31.4% 80.7%, rgba(255,255,255,0.95) 3.7px, transparent 4.5px),
+      radial-gradient(circle at 30.0% 21.8%, rgba(255,255,255,0.95) 3.3px, transparent 4.1px),
+      radial-gradient(ellipse 120% 55% at 50% 108%, rgba(140,190,235,0.55) 0%, rgba(140,190,235,0) 70%),
+      linear-gradient(180deg,
+        #0b1e3a 0%,
+        #123a6e 32%,
+        #1f5a9e 60%,
+        #7fb0dd 100%);
+  }
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* 顶部导航 */
+  header.nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-inner .logo { font-weight: 700; color: var(--navy); letter-spacing: 0.5px; }
+  .nav-inner nav a {
+    margin-left: 22px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .nav-inner nav a:hover { color: var(--navy); text-decoration: none; }
+
+  /* 首屏 Hero（Muse Group 式全宽横幅：照片原始比例铺满横屏，文字叠加，背景露出星空） */
+  section.hero {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    display: block;
+    width: 100%;
+    max-width: 860px;
+    height: auto;
+    margin: 0 auto;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, rgba(8,20,38,0.82) 0%, rgba(8,20,38,0.55) 42%, rgba(8,20,38,0.12) 75%, rgba(8,20,38,0.25) 100%);
+  }
+  .hero-content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .hero h1 {
+    font-size: 52px;
+    color: #fff;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 18px rgba(0,0,0,0.35);
+  }
+  .hero .hero-school {
+    margin: 10px 0 26px;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #8ec9ff;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+  /* 关键词（白色粗体大字，叠在照片上，可读性优先） */
+  .hero-words {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 6px 0 30px;
+  }
+  .hero-words .w {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 20px;
+    border-radius: 999px;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #fff;
+    background: rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.45);
+    backdrop-filter: blur(4px);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+  }
+  .hero-words .w.hot {
+    color: #fff;
+    background: linear-gradient(135deg, #3aa0e0, #1d6fb8);
+    border-color: rgba(255,255,255,0.5);
+    box-shadow: 0 4px 14px rgba(29,111,184,0.35);
+  }
+  .hero .btns a.btn {
+    display: inline-block;
+    margin: 6px 10px 6px 0;
+    padding: 13px 30px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    transition: transform .1s ease, box-shadow .1s ease;
+  }
+  .hero .btns a.btn-primary { background: #fff; color: var(--navy); box-shadow: 0 6px 18px rgba(0,0,0,0.25); }
+  .hero .btns a.btn-ghost { border: 1.5px solid rgba(255,255,255,0.85); color: #fff; background: rgba(255,255,255,0.08); }
+  .hero .btns a.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.35); text-decoration: none; }
+
+  /* 左下角快捷键（深色半透明胶囊，叠在照片上） */
+  .hero-keys {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 34px;
+  }
+  .hero-keys a.key {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    background: rgba(10,25,45,0.55);
+    border: 1px solid rgba(255,255,255,0.35);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    transition: transform .1s ease, box-shadow .1s ease;
+  }
+  .hero-keys a.key:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0,0,0,0.35); text-decoration: none; }
+  .hero-keys .k-ride::before { content: "🚴"; }
+  .hero-keys .k-twin::before { content: "🤖"; }
+  .hero-keys .k-mail::before { content: "📬"; }
+  .hero-keys .k-ride  { background: linear-gradient(135deg, rgba(30,136,197,0.85), rgba(13,95,143,0.85)); }
+  .hero-keys .k-twin  { background: linear-gradient(135deg, rgba(46,158,107,0.85), rgba(29,115,80,0.85)); }
+  .hero-keys .k-mail  { background: linear-gradient(135deg, rgba(224,138,46,0.85), rgba(184,105,24,0.85)); }
+
+  /* 轮播指示点（装饰，呼应 Muse Group 横幅底部） */
+  .hero-dots {
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 22px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+  .hero-dots span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.6);
+  }
+  .hero-dots span.on { background: #ffd23f; transform: scale(1.25); }
+
+  /* 区块通用 */
+  main { max-width: 1000px; margin: 0 auto; padding: 0 24px 60px; }
+  section.card {
+    background: rgba(255,255,255,0.88);
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 14px;
+    padding: 32px 34px;
+    margin: 26px 0;
+    box-shadow: 0 8px 24px rgba(35,97,146,0.08);
+    backdrop-filter: blur(4px);
+  }
+  section.card h2 {
+    font-size: 22px;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  section.card .sub {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  /* 关于 */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .about-grid h3 { font-size: 15px; color: var(--blue); margin-bottom: 8px; }
+  .about-grid ul { list-style: none; }
+  .about-grid li { padding: 6px 0; border-bottom: 1px dashed var(--line); color: var(--ink); }
+  .about-grid li:last-child { border-bottom: none; }
+  .highlight {
+    margin-top: 18px;
+    padding: 12px 16px;
+    background: #eef3f9;
+    border-left: 4px solid var(--blue);
+    border-radius: 6px;
+    color: var(--ink);
+  }
+
+  /* 技能标签 */
+  .tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .tag {
+    background: #eef3f9;
+    color: var(--navy-2);
+    border-radius: 20px;
+    padding: 6px 15px;
+    font-size: 14px;
+  }
+
+  /* 项目 */
+  .project {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .project:last-child { border-bottom: none; }
+  .project h3 { color: var(--navy); font-size: 17px; margin-bottom: 4px; }
+  .project .status { font-size: 13px; color: var(--muted); }
+
+  /* 骑行视频 */
+  .video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 16px;
+  }
+  .video-item video {
+    width: 100%;
+    border-radius: 12px;
+    background: #000;
+    display: block;
+  }
+  .video-item .video-cap {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+  @media (max-width: 640px) {
+    .video-grid { grid-template-columns: 1fr; }
+  }
+
+  /* 骑行照片画廊 */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .photo-grid img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: zoom-in;
+    transition: transform .18s ease, box-shadow .18s ease;
+    background: #eef1f5;
+  }
+  .photo-grid img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 16px rgba(18,53,91,.18);
+  }
+  /* 点击放大浮层 */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(10,18,30,.92);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+    padding: 24px;
+  }
+  .lightbox.show { display: flex; }
+  .lightbox img {
+    max-width: 94vw;
+    max-height: 88vh;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.5);
+  }
+
+  /* 数字分身聊天 */
+  .chat-box {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #fbfcfe;
+    height: 320px;
+    overflow-y: auto;
+    padding: 16px;
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .msg { max-width: 82%; padding: 10px 14px; border-radius: 12px; font-size: 15px; white-space: pre-wrap; }
+  .msg.bot { align-self: flex-start; background: #eef3f9; color: var(--ink); border-top-left-radius: 4px; }
+  .msg.user { align-self: flex-end; background: var(--navy); color: #fff; border-top-right-radius: 4px; }
+  .chat-input { display: flex; gap: 10px; }
+  .chat-input input {
+    flex: 1;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+  }
+  .chat-input input:focus { border-color: var(--blue); }
+  .chat-input button {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 8px;
+    background: var(--navy);
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  .chat-hint { font-size: 13px; color: var(--muted); }
+
+  /* 联系 */
+  .contact-links { display: flex; flex-wrap: wrap; gap: 12px; }
+  .contact-links a {
+    padding: 10px 18px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--card);
+    color: var(--navy);
+    font-size: 14px;
+  }
+
+  /* 意见反馈表单（V3：无需登录，直连 Supabase） */
+  .fb-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+  .fb-field label { font-size: 14px; font-weight: 600; color: var(--navy-2); }
+  .fb-field .opt { font-weight: 400; font-size: 12px; color: var(--muted); }
+  .fb-field input,
+  .fb-field select,
+  .fb-field textarea {
+    width: 100%;
+    padding: 11px 13px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    color: var(--ink);
+    background: #fff;
+    outline: none;
+  }
+  .fb-field input:focus,
+  .fb-field select:focus,
+  .fb-field textarea:focus { border-color: var(--blue); }
+  .fb-field textarea { min-height: 118px; resize: vertical; line-height: 1.65; }
+  .fb-counter { font-size: 12px; color: var(--muted); text-align: right; }
+  .fb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+  .fb-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 4px; }
+  .fb-actions button {
+    padding: 12px 26px;
+    border: none;
+    border-radius: 8px;
+    background: var(--navy);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .fb-actions button:hover { background: var(--navy-2); }
+  .fb-actions button:disabled { opacity: .6; cursor: default; }
+  .fb-status { font-size: 14px; line-height: 1.5; }
+  .fb-status.ok { color: #1b7f4b; }
+  .fb-status.err { color: #c0392b; }
+  .fb-status.warn { color: #a4691a; }
+  .fb-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .fb-note { font-size: 13px; color: var(--muted); margin-top: 16px; }
+
+  footer {
+    text-align: center;
+    color: rgba(255,255,255,0.75);
+    font-size: 13px;
+    padding: 26px 20px 34px;
+    border-top: 1px solid rgba(255,255,255,0.18);
+  }
+
+  /* 响应式 */
+  @media (max-width: 760px) {
+    /* 手机端：首屏文字/按钮不再绝对定位压在照片上 —— 照片完整可见，文字排在照片下方 */
+    section.hero { display: block; text-align: center; }
+    .hero-bg { max-width: 100%; }
+    .hero-overlay { display: none; }
+    .hero-dots { display: none; }
+    .hero-content {
+      position: relative;
+      inset: auto;
+      max-width: 100%;
+      align-items: center;
+      text-align: center;
+      padding: 22px 20px 26px;
+      background: linear-gradient(180deg, rgba(11,30,58,0.78) 0%, rgba(11,30,58,0.55) 100%);
+    }
+    .hero h1 { font-size: 36px; }
+    .hero .hero-school { margin: 8px 0 18px; font-size: 17px; }
+    .hero-words { justify-content: center; margin: 4px 0 22px; }
+    .hero-keys { justify-content: center; margin-top: 22px; }
+    .hero .btns a.btn { margin-left: 4px; margin-right: 4px; }
+    .nav-inner nav a { margin-left: 14px; }
+    .about-grid { grid-template-columns: 1fr; }
+    section.card { padding: 24px 20px; }
+    .chat-input button { padding: 12px 16px; }
+  }
+
+  /* ============ 入场动画：小球滚过棋盘格赛道，坠入繁星 ============ */
+  html.intro-lock { overflow: hidden; }
+  #intro {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 130% 70% at 50% 115%, rgba(56,110,195,0.45) 0%, rgba(8,20,50,0) 65%),
+      linear-gradient(180deg, #050b22 0%, #0c1a3e 34%, #14295e 60%, #1e3f85 80%, #2f5aa8 100%);
+    transition: opacity .9s ease;
+  }
+  #intro.intro-leave { opacity: 0; pointer-events: none; }
+  .intro-stars {
+    position: absolute;
+    top: 0; left: 0;
+    width: 2px; height: 2px;
+    pointer-events: none;
+    border-radius: 50%;
+    animation: introTwinkle 2.2s ease-in-out infinite alternate;
+  }
+  .intro-stars-s { box-shadow:
+      663px 154px 0 rgba(255,255,255,0.85),,
+      808px 666px 0 rgba(255,255,255,0.85),,
+      98px 74px 0 rgba(255,255,255,0.85),,
+      1681px 548px 0 rgba(255,255,255,0.85),,
+      192px 374px 0 rgba(255,255,255,0.85),,
+      1193px 59px 0 rgba(255,255,255,0.85),,
+      1863px 519px 0 rgba(255,255,255,0.85),,
+      439px 38px 0 rgba(255,255,255,0.85),,
+      176px 444px 0 rgba(255,255,255,0.85),,
+      856px 71px 0 rgba(255,255,255,0.85),,
+      492px 92px 0 rgba(255,255,255,0.85),,
+      1128px 434px 0 rgba(255,255,255,0.85),,
+      121px 846px 0 rgba(255,255,255,0.85),,
+      1158px 126px 0 rgba(255,255,255,0.85),,
+      457px 645px 0 rgba(255,255,255,0.85),,
+      1284px 596px 0 rgba(255,255,255,0.85),,
+      126px 590px 0 rgba(255,255,255,0.85),,
+      1199px 406px 0 rgba(255,255,255,0.85),,
+      101px 226px 0 rgba(255,255,255,0.85),,
+      95px 570px 0 rgba(255,255,255,0.85),,
+      1758px 136px 0 rgba(255,255,255,0.85),,
+      593px 429px 0 rgba(255,255,255,0.85),,
+      295px 553px 0 rgba(255,255,255,0.85),,
+      241px 584px 0 rgba(255,255,255,0.85),,
+      631px 573px 0 rgba(255,255,255,0.85),,
+      1671px 698px 0 rgba(255,255,255,0.85),,
+      370px 105px 0 rgba(255,255,255,0.85),,
+      1191px 584px 0 rgba(255,255,255,0.85),,
+      1308px 192px 0 rgba(255,255,255,0.85),,
+      762px 99px 0 rgba(255,255,255,0.85),,
+      1121px 729px 0 rgba(255,255,255,0.85),,
+      128px 577px 0 rgba(255,255,255,0.85),,
+      122px 633px 0 rgba(255,255,255,0.85),,
+      421px 508px 0 rgba(255,255,255,0.85),,
+      1393px 544px 0 rgba(255,255,255,0.85),,
+      875px 795px 0 rgba(255,255,255,0.85),,
+      643px 476px 0 rgba(255,255,255,0.85),,
+      1199px 464px 0 rgba(255,255,255,0.85),,
+      740px 306px 0 rgba(255,255,255,0.85),,
+      508px 813px 0 rgba(255,255,255,0.85),,
+      368px 715px 0 rgba(255,255,255,0.85),,
+      1597px 249px 0 rgba(255,255,255,0.85),,
+      167px 588px 0 rgba(255,255,255,0.85),,
+      614px 537px 0 rgba(255,255,255,0.85),,
+      1013px 896px 0 rgba(255,255,255,0.85),,
+      703px 746px 0 rgba(255,255,255,0.85),,
+      919px 294px 0 rgba(255,255,255,0.85),,
+      1247px 74px 0 rgba(255,255,255,0.85),,
+      241px 524px 0 rgba(255,255,255,0.85),,
+      856px 168px 0 rgba(255,255,255,0.85),,
+      1550px 350px 0 rgba(255,255,255,0.85),,
+      311px 500px 0 rgba(255,255,255,0.85),,
+      863px 40px 0 rgba(255,255,255,0.85),,
+      1368px 79px 0 rgba(255,255,255,0.85),,
+      1565px 571px 0 rgba(255,255,255,0.85),,
+      1173px 808px 0 rgba(255,255,255,0.85),,
+      1792px 837px 0 rgba(255,255,255,0.85),,
+      642px 348px 0 rgba(255,255,255,0.85),,
+      1423px 358px 0 rgba(255,255,255,0.85),,
+      1217px 508px 0 rgba(255,255,255,0.85)
+    ; }
+  .intro-stars-b { width: 3px; height: 3px; box-shadow:
+      1187px 816px 0 1.5px rgba(255,255,255,0.9),,
+      934px 70px 0 1.5px rgba(255,255,255,0.9),,
+      1720px 95px 0 1.5px rgba(255,255,255,0.9),,
+      552px 485px 0 1.5px rgba(255,255,255,0.9),,
+      1427px 680px 0 1.5px rgba(255,255,255,0.9),,
+      133px 62px 0 1.5px rgba(255,255,255,0.9),,
+      1497px 718px 0 1.5px rgba(255,255,255,0.9),,
+      634px 662px 0 1.5px rgba(255,255,255,0.9),,
+      1183px 697px 0 1.5px rgba(255,255,255,0.9),,
+      1683px 456px 0 1.5px rgba(255,255,255,0.9),,
+      582px 733px 0 1.5px rgba(255,255,255,0.9),,
+      790px 684px 0 1.5px rgba(255,255,255,0.9),,
+      710px 23px 0 1.5px rgba(255,255,255,0.9),,
+      945px 363px 0 1.5px rgba(255,255,255,0.9),,
+      344px 625px 0 1.5px rgba(255,255,255,0.9),,
+      239px 505px 0 1.5px rgba(255,255,255,0.9)
+    ; animation-duration: 3.4s; }
+  .intro-scene {
+    position: absolute;
+    inset: 0;
+    perspective: 900px;
+    perspective-origin: 50% 18%;
+  }
+  .intro-track {
+    position: absolute;
+    left: 50%;
+    bottom: -34vh;
+    width: 250px;
+    height: 66vh;
+    margin-left: -125px;
+    transform-origin: 50% 100%;
+    transform: rotateX(57deg);
+    background-color: #5daf45;
+    background-image:
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.92) 0px, rgba(255,255,255,0.92) 26px, rgba(255,255,255,0) 26px, rgba(255,255,255,0) 52px),
+      repeating-linear-gradient(180deg, rgba(255,255,255,0.92) 0px, rgba(255,255,255,0.92) 26px, rgba(255,255,255,0) 26px, rgba(255,255,255,0) 52px);
+    border-left: 18px solid #3a7a31;
+    border-right: 18px solid #3a7a31;
+    box-shadow: 0 0 70px rgba(0,0,0,0.6);
+    animation: introTrack 4.1s ease forwards;
+  }
+  .intro-track::after {
+    content: "";
+    position: absolute;
+    inset: -18px;
+    background:
+      repeating-linear-gradient(90deg, rgba(0,0,0,0.14) 0 2px, rgba(0,0,0,0) 2px 26px),
+      repeating-linear-gradient(180deg, rgba(0,0,0,0.10) 0 2px, rgba(0,0,0,0) 2px 26px);
+    pointer-events: none;
+  }
+  .intro-ball {
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    width: 58px;
+    height: 58px;
+    margin-left: -29px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 32% 26%, #ffd9c8 0%, #ff5d3a 34%, #d92c14 66%, #8f1d0b 100%);
+    box-shadow:
+      inset -9px -11px 20px rgba(96,0,0,0.5),
+      inset 7px 9px 16px rgba(255,255,255,0.32),
+      0 16px 34px rgba(0,0,0,0.55);
+    animation: introBall 4.1s cubic-bezier(.42,.03,.62,1) forwards;
+  }
+  .intro-skip {
+    position: absolute;
+    right: 26px;
+    bottom: 24px;
+    z-index: 5;
+    padding: 9px 18px;
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.9);
+    font-size: 13px;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: background .15s ease;
+  }
+  .intro-skip:hover { background: rgba(255,255,255,0.24); }
+  @keyframes introTwinkle {
+    from { opacity: .72; }
+    to   { opacity: 1; }
+  }
+  @keyframes introTrack {
+    0%, 52% { opacity: 1; }
+    70%, 100% { opacity: 0; }
+  }
+  @keyframes introBall {
+    0%   { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
+    38%  { transform: translateY(-45vh) scale(0.42) rotate(520deg); opacity: 1; }
+    52%  { transform: translateY(-49vh) scale(0.4) rotate(560deg); opacity: 1; }
+    60%  { transform: translateY(-43vh) scale(0.52) rotate(585deg); opacity: 1; }
+    80%  { transform: translateY(8vh) scale(1.6) rotate(700deg); opacity: 1; }
+    96%  { transform: translateY(48vh) scale(2.45) rotate(760deg); opacity: 1; }
+    100% { transform: translateY(56vh) scale(2.7) rotate(780deg); opacity: 0; }
+  }
+
+
+  /* ============ 入场后浮现的 AI 工具信息框（仿视频：SITE + 模型列表） ============ */
+  #ai-dock {
+    position: fixed;
+    left: 50%;
+    bottom: 26px;
+    z-index: 200;
+    transform: translate(-50%, 22px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1);
+  }
+  #ai-dock.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+    pointer-events: auto;
+  }
+  .ai-dock-indicator {
+    position: relative;
+    width: 320px;
+    height: 1px;
+    margin: 0 auto 12px;
+    background: rgba(255,255,255,0.35);
+  }
+  .ai-dock-indicator::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -2px;
+    width: 42px;
+    height: 4px;
+    border-radius: 2px;
+    background: #111214;
+    transform: translateX(-50%);
+  }
+  .ai-dock {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 20px;
+    background: rgba(246,242,234,0.97);
+    box-shadow: 0 14px 44px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(255,255,255,0.85);
+  }
+  .ai-dock .site {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #101113;
+    color: #fff;
+    font-weight: 800;
+    letter-spacing: 3px;
+    font-size: 14px;
+    padding: 26px 15px;
+    border-radius: 14px;
+    text-decoration: none;
+  }
+  .ai-dock .site:hover { background: #23252a; }
+  .ai-dock .list {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas:
+      "a b"
+      "c d"
+      "e f";
+    column-gap: 34px;
+    row-gap: 9px;
+    background: #101113;
+    padding: 16px 24px;
+    border-radius: 14px;
+  }
+  .ai-dock .list a {
+    color: #f5f4f1;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .ai-dock .list a:nth-child(1) { grid-area: a; }
+  .ai-dock .list a:nth-child(2) { grid-area: b; }
+  .ai-dock .list a:nth-child(3) { grid-area: c; }
+  .ai-dock .list a:nth-child(4) { grid-area: d; }
+  .ai-dock .list a:nth-child(5) { grid-area: e; }
+  .ai-dock .list a:nth-child(6) { grid-area: f; }
+  .ai-dock .list a:hover { color: #ffd23f; }
+  @media (max-width: 760px) {
+    #ai-dock { bottom: 14px; }
+    .ai-dock { padding: 9px; gap: 8px; border-radius: 16px; }
+    .ai-dock .site { padding: 18px 11px; font-size: 12px; letter-spacing: 2px; }
+    .ai-dock .list { column-gap: 20px; row-gap: 7px; padding: 12px 14px; }
+    .ai-dock .list a { font-size: 12px; letter-spacing: 0.5px; }
+    .ai-dock-indicator { width: 240px; }
+  }
+
+</style>
+</head>
+<body>
+<!-- 入场动画：小球滚过棋盘格赛道，坠入繁星 -->
+<div id="intro">
+  <div class="intro-stars intro-stars-s"></div>
+  <div class="intro-stars intro-stars-b"></div>
+  <div class="intro-scene">
+    <div class="intro-track"></div>
+    <div class="intro-ball"></div>
+  </div>
+  <button class="intro-skip" type="button">跳过 ›</button>
+</div>
+
+<!-- 入场后浮现：个人主页快捷选项信息框 -->
+<div id="ai-dock">
+  <div class="ai-dock-indicator"></div>
+  <div class="ai-dock">
+    <a class="site" href="#top">SITE</a>
+    <div class="list">
+      <a href="#digital-twin">向数字分身提问</a>
+      <a href="#digital-twin">数字分身</a>
+      <a href="#about">了解我</a>
+      <a href="#contact">联系我</a>
+      <a href="#feedback">提个意见</a>
+    </div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <span class="logo">刘泽奇</span>
+    <nav>
+      <a href="#about">关于</a>
+      <a href="#work">学习与项目</a>
+      <a href="#ride">骑行视频</a>
+      <a href="#digital-twin">数字分身</a>
+      <a href="#feedback">意见反馈</a>
+      <a href="#contact">联系</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <img class="hero-bg" src="assets/ride-photos/ride-11.jpg" alt="刘泽奇在环岛旅游公路 211 里程碑">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>刘泽奇</h1>
+    <p class="hero-school">天津大学深圳学院</p>
+    <div class="hero-words">
+      <span class="w hot">脑机接口</span>
+      <span class="w">骑行</span>
+      <span class="w">健身</span>
+      <span class="w">AI4X</span>
+    </div>
+    <div class="btns">
+      <a class="btn btn-primary" href="#digital-twin">向数字分身提问</a>
+      <a class="btn btn-ghost" href="#about">了解我</a>
+    </div>
+    <div class="hero-keys">
+      <a class="key k-ride" href="#ride">骑行视频</a>
+      <a class="key k-twin" href="#digital-twin">数字分身</a>
+      <a class="key k-mail" href="#contact">联系我</a>
+    </div>
+  </div>
+  <div class="hero-dots">
+    <span></span><span class="on"></span><span></span><span></span><span></span>
+  </div>
+</section>
+
+<main>
+  <section class="card" id="about">
+    <h2>关于我</h2>
+    <p class="sub">基本信息与关注方向</p>
+    <div class="about-grid">
+      <div>
+        <h3>一句话介绍</h3>
+        <ul>
+          <li>天津大学深圳学院大一学生。</li>
+          <li>正在学习用 AI 做产品。</li>
+          <li>个人特点：喜欢把复杂问题讲成人话。</li>
+        </ul>
+      </div>
+      <div>
+        <h3>兴趣</h3>
+        <ul>
+          <li>篮球、骑行、健身</li>
+          <li>打游戏：瓦罗兰特、金铲铲</li>
+          <li>暑假完成了环海南岛骑行</li>
+        </ul>
+      </div>
+      <div>
+        <h3>环海南岛骑行</h3>
+        <ul>
+          <li>在海南待了两周，骑车骑了十天，全程约 1000km</li>
+          <li>从海口出发，逆时针，西线进东线出</li>
+          <li>一行四人，两台自行车、两台电动车</li>
+          <li>印象最深：万宁的海很蓝、空气很好，还有好吃的东北烧烤</li>
+          <li>最难忘：西线在修路，跟大货车挤在一起骑</li>
+          <li>最大的收获：坚持很重要，要提前规划</li>
+        </ul>
+      </div>
+    </div>
+    <div class="highlight">
+      关注方向：内容表达、AI 应用、知识整理。目前重点在学习 AI for Sustainability、CO₂ 吸附相关的机器学习项目，同时夯实高数与编程基础。
+    </div>
+  </section>
+
+  <section class="card" id="work">
+    <h2>学习与项目</h2>
+    <p class="sub">正在学习与开展的方向（内容真实，正在完善）</p>
+    <div class="project">
+      <h3>AI for Sustainability 相关项目</h3>
+      <p>以 AI 服务可持续议题，涉及 CO₂ 吸附与机器学习方向。</p>
+      <div class="status">状态：学习中，细节与成果待补充</div>
+    </div>
+    <div class="project">
+      <h3>基础学习</h3>
+      <p>基础高等数学、编程知识。</p>
+      <div class="status">状态：进行中</div>
+    </div>
+    <div class="tags" style="margin-top:18px;">
+      <span class="tag">机器学习</span>
+      <span class="tag">CO₂ 吸附</span>
+      <span class="tag">AI 应用</span>
+      <span class="tag">高等数学</span>
+      <span class="tag">编程</span>
+    </div>
+  </section>
+
+  <section class="card" id="ride">
+    <h2>环海南岛骑行</h2>
+    <p class="sub">2026 年暑假，从海口出发逆时针环岛：在海南待了两周、骑了十天、全程约 1000km。一行四人（两台自行车、两台电动车），西线修路跟大货车挤着骑，万宁的海和东北烧烤都很棒。骑行视频如下 ↓</p>
+    <div class="video-grid">
+      <div class="video-item">
+        <video controls preload="metadata" poster="">
+          <source src="assets/videos/ride-2.mp4" type="video/mp4">
+          你的浏览器不支持视频播放，请下载后观看。
+        </video>
+        <div class="video-cap">ep01</div>
+      </div>
+      <div class="video-item">
+        <video controls preload="metadata" poster="assets/videos/ep02-poster.jpg">
+          <source src="assets/videos/ride-1.mp4" type="video/mp4">
+          你的浏览器不支持视频播放，请下载后观看。
+        </video>
+        <div class="video-cap">ep02</div>
+      </div>
+      <div class="video-item">
+        <video controls preload="metadata" poster="">
+          <source src="assets/videos/ride-3.mp4" type="video/mp4">
+          你的浏览器不支持视频播放，请下载后观看。
+        </video>
+        <div class="video-cap">好汉坡放坡</div>
+      </div>
+    </div>
+    <h3 style="margin-top:28px;">骑行照片</h3>
+    <div class="photo-grid" id="ridePhotos"></div>
+  </section>
+
+  <section class="card" id="digital-twin">
+    <h2>数字分身聊天区</h2>
+    <p class="sub">已接入真实大模型（智谱 glm-4-flash），基于我确认的真实信息回答。</p>
+    <div class="chat-box" id="chatBox">
+      <div class="msg bot">你好，我是刘泽奇的数字分身。你可以问我：你现在在做什么？你的兴趣爱好是什么？怎么联系你？</div>
+    </div>
+    <div class="chat-input">
+      <input id="chatInput" type="text" placeholder="输入你的问题…" autocomplete="off">
+      <button id="sendBtn" type="button">发送</button>
+    </div>
+    <p class="chat-hint">提示：点击下方建议问题可快速提问。</p>
+    <div class="tags" style="margin-top:12px;">
+      <span class="tag" data-q="你现在在做什么？">你现在在做什么？</span>
+      <span class="tag" data-q="你的兴趣爱好是什么？">你的兴趣爱好是什么？</span>
+      <span class="tag" data-q="怎么联系你？">怎么联系你？</span>
+    </div>
+  </section>
+
+  <section class="card" id="contact">
+    <h2>联系我</h2>
+    <p class="sub">欢迎通过以下方式联系我：</p>
+    <div class="contact-links">
+      <a href="mailto:13716713772@163.com">✉️ 13716713772@163.com</a>
+    </div>
+  </section>
+
+  <section class="card" id="feedback">
+    <h2>意见反馈</h2>
+    <p class="sub">无需登录、无需注册，直接写下你想说的：哪里做得好、哪里没看懂、希望我改进什么，都可以。只有我能看到你的留言。</p>
+    <form id="feedbackForm" novalidate>
+      <div class="fb-field">
+        <label for="fbMessage">你的意见或建议 <span class="opt">（必填，500 字以内）</span></label>
+        <textarea id="fbMessage" name="message" maxlength="500" placeholder="例如：首屏照片很有冲击力，但骑行视频打开有点慢；另外想知道你具体在学什么……"></textarea>
+        <div class="fb-counter" id="fbCount">0 / 500</div>
+      </div>
+      <div class="fb-grid">
+        <div class="fb-field">
+          <label for="fbNickname">怎么称呼你 <span class="opt">（可选）</span></label>
+          <input id="fbNickname" name="nickname" maxlength="30" placeholder="例如：同学 / 阿峰">
+        </div>
+        <div class="fb-field">
+          <label for="fbRole">你的身份 <span class="opt">（可选）</span></label>
+          <select id="fbRole" name="role">
+            <option value="">不填写</option>
+            <option value="同学">同学</option>
+            <option value="老师">老师</option>
+            <option value="家人">家人</option>
+            <option value="朋友">朋友</option>
+            <option value="同事">同事</option>
+            <option value="其他">其他</option>
+            <option value="不便透露">不便透露</option>
+          </select>
+        </div>
+      </div>
+      <div class="fb-grid">
+        <div class="fb-field">
+          <label for="fbDevice">这条反馈针对哪台设备 <span class="opt">（可选）</span></label>
+          <select id="fbDevice" name="device">
+            <option value="">不指定</option>
+            <option value="电脑">电脑</option>
+            <option value="手机">手机</option>
+            <option value="平板">平板</option>
+            <option value="其他">其他</option>
+          </select>
+        </div>
+        <div class="fb-field">
+          <label for="fbRating">整体印象 <span class="opt">（可选）</span></label>
+          <select id="fbRating" name="rating">
+            <option value="">不评分</option>
+            <option value="5">5 · 很好</option>
+            <option value="4">4 · 不错</option>
+            <option value="3">3 · 一般</option>
+            <option value="2">2 · 有待改进</option>
+            <option value="1">1 · 不太行</option>
+          </select>
+        </div>
+      </div>
+      <div class="fb-field">
+        <label for="fbContact">回访联系方式 <span class="opt">（可选，邮箱或微信）</span></label>
+        <input id="fbContact" name="contact" maxlength="100" placeholder="想让我回复你时再填">
+      </div>
+      <!-- 反垃圾蜜罐：真人看不到，被填写即视为机器人 -->
+      <div class="fb-hp" aria-hidden="true">
+        <label for="fbCompany">Company website</label>
+        <input id="fbCompany" name="company_website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <div class="fb-actions">
+        <button id="fbSubmit" type="submit">提交反馈</button>
+        <div class="fb-status" id="fbStatus" role="status" aria-live="polite"></div>
+      </div>
+    </form>
+    <p class="fb-note">隐私说明：反馈内容存入我自己的 Supabase 数据库，只有我能查看；不会公开你的称呼与联系方式，也不会用于其他用途。</p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 刘泽奇 · V3 版本 · Vibe Coding 课程项目</p>
+</footer>
+
+<script>
+  // ---- 数字分身：优先调用本地 LLM 代理（/api/chat），失败时回退到规则表 ----
+  // 提示：API Key 只存在于 server 目录的配置里，绝不会出现在本页面。
+  const answers = {
+    "你现在在做什么？": "我是天津大学深圳学院大一学生，正在学习用 AI 做产品，同时推进 AI for Sustainability（CO₂ 吸附方向）的机器学习项目，并夯实高数与编程基础。",
+    "你的兴趣爱好是什么？": "我的兴趣爱好是篮球、骑行、健身，还喜欢打游戏（瓦罗兰特、金铲铲）。暑假我还完成了环海南岛骑行：在海南待了两周、骑了十天、全程约 1000km，从海口出发逆时针环岛，西线在修路跟大货车挤着骑挺难忘的，万宁的海很蓝、东北烧烤也很好吃。",
+    "怎么联系你？": "你可以通过邮箱 13716713772@163.com 联系我。",
+  };
+
+  const chatBox = document.getElementById('chatBox');
+  const chatInput = document.getElementById('chatInput');
+  const sendBtn = document.getElementById('sendBtn');
+  let history = [];   // 多轮对话上下文（仅发给本地代理）
+
+  function appendMsg(role, text) {
+    const div = document.createElement('div');
+    div.className = 'msg ' + role;
+    div.textContent = text;
+    chatBox.appendChild(div);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  function fallbackReply(q) {
+    // 本地规则表兜底
+    const key = answers.hasOwnProperty(q) ? q : null;
+    if (key) {
+      appendMsg('bot', answers[key]);
+    } else {
+      appendMsg('bot', '我暂时还没学到这个问题（当前未连接真实模型）。你可以先试试页面上的建议问题。');
+    }
+  }
+
+  // 数字分身后端地址来自 site/config.js；留空则直接使用页面内置规则回答（公开托管时的默认行为）
+  const CHAT_API = (window.APP_CONFIG && window.APP_CONFIG.CHAT_API) || '';
+
+  async function reply(q) {
+    appendMsg('user', q);
+
+    if (!CHAT_API) {
+      fallbackReply(q);
+      return;
+    }
+
+    // 尝试调用真实模型
+    try {
+      const res = await fetch(CHAT_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ history: history, message: q }),
+      });
+      const data = await res.json();
+
+      if (res.ok && data.reply) {
+        appendMsg('bot', data.reply);
+        history.push({ role: 'user', content: q });
+        history.push({ role: 'assistant', content: data.reply });
+        return;
+      }
+
+      // 未配置 Key 或错误：回退到本地规则表
+      fallbackReply(q);
+    } catch (e) {
+      // 网络/代理不可用：回退到本地规则表
+      fallbackReply(q);
+    }
+  }
+
+  function send() {
+    const q = chatInput.value.trim();
+    if (!q) return;
+    reply(q);
+    chatInput.value = '';
+  }
+
+  sendBtn.addEventListener('click', send);
+  chatInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') send(); });
+
+  document.querySelectorAll('.tag[data-q]').forEach((el) => {
+    el.style.cursor = 'pointer';
+    el.addEventListener('click', () => reply(el.getAttribute('data-q')));
+  });
+
+  // ---- 环岛骑行照片画廊（28 张，点击放大）----
+  (function () {
+    const total = 28;
+    const grid = document.getElementById('ridePhotos');
+    if (!grid) return;
+    const frag = document.createDocumentFragment();
+    for (let i = 1; i <= total; i++) {
+      const num = String(i).padStart(2, '0');
+      const img = document.createElement('img');
+      img.src = 'assets/ride-photos/ride-' + num + '.jpg';
+      img.alt = '环海南岛骑行照片 ' + i;
+      img.loading = 'lazy';
+      img.addEventListener('click', () => showLightbox(img.src));
+      frag.appendChild(img);
+    }
+    grid.appendChild(frag);
+
+    const lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.innerHTML = '<img alt="">';
+    lb.addEventListener('click', () => lb.classList.remove('show'));
+    document.body.appendChild(lb);
+
+    function showLightbox(src) {
+      lb.querySelector('img').src = src;
+      lb.classList.add('show');
+    }
+  })();
+</script>
+
+<script>
+  (function () {
+    var intro = document.getElementById('intro');
+    if (!intro) return;
+    var done = false;
+    function leave() {
+      if (done) return;
+      done = true;
+      document.documentElement.classList.add('intro-lock');
+      intro.classList.add('intro-leave');
+      setTimeout(function () {
+        var dock = document.getElementById('ai-dock');
+        if (dock) dock.classList.add('show');
+      }, 320);
+      setTimeout(function () {
+        intro.style.display = 'none';
+        document.documentElement.classList.remove('intro-lock');
+      }, 950);
+    }
+    var skip = intro.querySelector('.intro-skip');
+    if (skip) skip.addEventListener('click', leave);
+    setTimeout(leave, 4300);
+  })();
+</script>
+
+<!-- V3 意见反馈：无需登录，直接提交到 Supabase -->
+<script src="feedback.js"></script>
+
+</body>
+</html>
