@@ -17,7 +17,7 @@ window.APP_CONFIG = {
   FEEDBACK_TABLE: 'feedback',
 
   // 当前站点版本号：访客提交反馈时自动附带，便于按版本分析意见
-  SITE_VERSION: 'V3',
+  SITE_VERSION: 'V4',
 
   // 数字分身后端地址。
   // 本地预览：'/api/chat'（由 server/chat_server.py 提供）

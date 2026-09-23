@@ -1,0 +1,27 @@
+头像素材授权说明 / Avatar asset attribution
+============================================
+
+本站欢迎页（#welcome）右栏的 4 个卡通头像：
+  site/assets/avatars/avatar-01.svg
+  site/assets/avatars/avatar-02.svg
+  site/assets/avatars/avatar-03.svg
+  site/assets/avatars/avatar-04.svg
+
+由 DiceBear（https://www.dicebear.com/）的 "micah" 风格生成。
+
+原始作品：Avatar Illustration System
+作者：Micah Lanier
+来源：https://www.figma.com/community/file/829741575478342595
+授权：Creative Commons Attribution 4.0 International (CC BY 4.0)
+      https://creativecommons.org/licenses/by/4.0/
+
+生成接口：https://api.dicebear.com/9.x/micah/svg
+生成日期：2026-09-22
+
+署名要求：CC BY 4.0 要求在保留署名信息的前提下使用。本站的满足方式：
+1) 每个 SVG 文件的 <metadata> 中已内嵌完整署名（dc:title / dc:creator /
+   dc:source / dcterms:license / dc:rights），随文件一同分发；
+2) 本说明文件随站点资源一同分发（源代码仓库中可见）。
+
+已做的改动：仅通过接口参数选择发型 / 发色 / 肤色 / 五官 / 衣着颜色，
+并设置 backgroundColor=F7F8FB、size=128；未修改图形本身。
